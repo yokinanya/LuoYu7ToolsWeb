@@ -1,0 +1,59 @@
+.blank-space {
+  height: 25px; /* 设置空白高度 */
+}
+.page {
+  display: none;
+}
+.page.active {
+  display: block;
+}
+
+body {
+  background-color: #f8f9fa;
+  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.inside-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.version-link {
+  font-size: 18px;
+}
+
+.sha1 {
+  font-size: 14px;
+  color: #666;
+}
+
+.footer-container {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: transparent;
+  text-align: center;
+}
