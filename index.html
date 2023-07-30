@@ -3,9 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./img/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./img/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./img/favicon-16x16.png"
+    />
     <link rel="manifest" href="/img/site.webmanifest" />
     <link
       rel="stylesheet"
@@ -184,6 +198,7 @@
             class="form-control"
             id="nickname"
             placeholder="请输入用户名"
+            onkeydown="handleKeyDown(event)"
           />
           <button
             class="btn btn-outline-secondary"
@@ -194,10 +209,17 @@
             查询
           </button>
         </div>
+        <div class="blank-space"></div>
         <div id="result"></div>
         <div class="blank-space"></div>
 
         <script>
+          function handleKeyDown(event) {
+            if (event.keyCode === 13) {
+              event.preventDefault();
+              getUUID();
+            }
+          }
           function getUUID() {
             var nickname = document.getElementById("nickname").value;
             var url =
@@ -215,6 +237,7 @@
                 if (data.uuid) {
                   var uuidPara = document.createElement("p");
                   uuidPara.textContent = "正版UUID: " + data.splitteduuid;
+                  uuidPara.style.textAlign = "center";
                   resultDiv.appendChild(uuidPara);
                 }
               }
@@ -223,6 +246,7 @@
                 var offlineUUIDPara = document.createElement("p");
                 offlineUUIDPara.textContent =
                   "离线UUID: " + data.offlinesplitteduuid;
+                offlineUUIDPara.style.textAlign = "center";
                 resultDiv.appendChild(offlineUUIDPara);
               }
             };
